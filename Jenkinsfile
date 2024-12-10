@@ -34,12 +34,12 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                   // withCredentials([string(credentialsId: 'k8s-token', variable: 'KUBETOKEN')]){
+                    withCredentials([file(credentialsId: 'k8s-token', variable: 'KUBETOKEN')]){
                     sh """
                     kubectl apply -f k8s-manifests/deployment.yaml --validate=false
                     kubectl apply -f k8s-manifests/service.yaml --validate=false
                     """
-               // }
+               }
             }
         }
     }
