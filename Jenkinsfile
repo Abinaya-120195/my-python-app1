@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    withCredentials([string(credentialsId: 'k8s-token', variable: 'KUBETOKEN')]){
+                   // withCredentials([string(credentialsId: 'k8s-token', variable: 'KUBETOKEN')]){
                     sh """
                     kubectl apply -f k8s-manifests/deployment.yaml
                     kubectl apply -f k8s-manifests/service.yaml
