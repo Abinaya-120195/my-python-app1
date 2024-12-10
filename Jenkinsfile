@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE = 'abinayapalraj12/python-app:latest'
+        DOCKER_IMAGE = 'abinayapalraj12/my-python-app1:latest'
         KUBE_NAMESPACE = 'default'
     }
     stages {
