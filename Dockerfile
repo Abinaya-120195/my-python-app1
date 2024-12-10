@@ -1,10 +1,13 @@
-FROM python:3
-RUN pip install django==3.2
+ROM python:3.9-slim
+WORKDIR /app
 
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 8000
 COPY . .
 
-RUN python manage.py migrate
-EXPOSE 8000
-CMD ["python","manage.py","runserver","0.0.0.0:8000"]
+# Run the application (replace 'your_script.py' with your main application file)
+CMD ["python", "app.py"]
 
 
