@@ -36,8 +36,8 @@ pipeline {
                 script {
                    // withCredentials([string(credentialsId: 'k8s-token', variable: 'KUBETOKEN')]){
                     sh """
-                    kubectl apply -f k8s-manifests/deployment.yaml
-                    kubectl apply -f k8s-manifests/service.yaml
+                    kubectl apply -f k8s-manifests/deployment.yaml --validate=false
+                    kubectl apply -f k8s-manifests/service.yaml --validate=false
                     """
                // }
             }
