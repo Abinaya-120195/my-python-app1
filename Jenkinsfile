@@ -8,7 +8,9 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 git 'https://github.com/Abinaya-120195/my-python-app1.git'
+                echo "Hello ABi"
             }
+            
         }
         stage('Build Docker Image') {
             steps {
