@@ -38,11 +38,9 @@ pipeline {
                    sh '''
 
                    echo "Hello deploy file"
-                    sh 'which kubectl || echo "kubectl not found"'
-                     sh 'echo $PATH'
-                    //kubectl config set-context --current --namespace=$KUBE_NAMESPACE
+                
                     kubectl apply -f k8s-manifests/deployment.yaml --validate=false
-                   kubectl apply -f k8s-manifests/service.yaml --validate=false
+                  
                     '''
                }
            }
