@@ -31,9 +31,9 @@ pipeline {
                }
             }
         }
-        stage('Deploy to Kubernetes') {
-            steps {
-                script {
+       // stage('Deploy to Kubernetes') {
+           // steps {
+               // script {
                    // withCredentials([file(credentialsId: 'k8s-token', variable: 'KUBECONFIG')]){
                    // sh """
                     //kubectl config set-context --current --namespace=$KUBE_NAMESPACE
@@ -41,8 +41,8 @@ pipeline {
                    // kubectl apply -f k8s-manifests/service.yaml --validate=false
                    // """
                //}
-            }
-        }
-    }
+           // }
+       // }
+    //}
     }
 }
