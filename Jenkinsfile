@@ -35,11 +35,11 @@ pipeline {
            steps {
                script {
                     withCredentials([file(credentialsId: 'k8s-token', variable: 'KUBECONFIG')]){
-                   sh """
-                    //kubectl config set-context --current --namespace=$KUBE_NAMESPACE
+                   sh '''
+                    kubectl config set-context --current --namespace=$KUBE_NAMESPACE
                     //kubectl apply -f k8s-manifests/deployment.yaml --validate=false
                    // kubectl apply -f k8s-manifests/service.yaml --validate=false
-                   // """
+                    '''
                }
            }
         }
