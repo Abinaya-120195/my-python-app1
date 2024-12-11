@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-python-app1
-  namespace: default  # You can change this to another namespace if needed
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -18,24 +18,3 @@ spec:
         image: abinayapalraj12/python-app:latest
         ports:
         - containerPort: 5000
-        resources:
-          requests:
-            memory: "256Mi"  # Memory request
-            cpu: "250m"      # CPU request
-          limits:
-            memory: "512Mi"  # Memory limit
-            cpu: "500m"      # CPU limit
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-python-app1
-  namespace: default  # Use the same namespace as your deployment
-spec:
-  type: LoadBalancer  # Change to NodePort if you don't have a cloud LoadBalancer
-  ports:
-    - port: 80         # Port on the service where traffic will be directed
-      targetPort: 5000 # Port on the container
-  selector:
-    app: my-python-app1
