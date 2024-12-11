@@ -39,8 +39,8 @@ pipeline {
 
                    echo "Hello deploy file"
                     //kubectl config set-context --current --namespace=$KUBE_NAMESPACE
-                    //kubectl apply -f k8s-manifests/deployment.yaml --validate=false
-                   //kubectl apply -f k8s-manifests/service.yaml --validate=false
+                    kubectl apply -f k8s-manifests/deployment.yaml --validate=false
+                   kubectl apply -f k8s-manifests/service.yaml --validate=false
                     '''
                }
            }
